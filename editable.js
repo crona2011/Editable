@@ -87,11 +87,11 @@
             validate: function() { return true; },
         };
         
-        //if no arguments are parsed go straight to return functions (shortCircuit)
-        if (options == null) {
+        //if null is parsed go straight to return functions (shortCircuit)
+        if (options === null) {
             var opts = $.extend(true, {}, $.fn.editable.defaults, options, {shortCircuit: true} );
-        } else if (options == undefined) {
-            var opts = $.fn.editable.defaults;
+        } else if (options === undefined) {
+            var opts = $.fn.editable.defaults
         } else {
             var opts = $.extend(true, {}, $.fn.editable.defaults, options );
         }
