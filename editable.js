@@ -250,7 +250,7 @@
                             $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='custom' class='custom-hook' title='Click to "+ opts.hookNames.custom +"'>"+ opts.hookNames.custom +"</a></li>");
                         }
                     });
-                    $(document).trigger('editable.deleteButton');
+                    $(document).trigger('editable.customButton');
                 }
             }
     
