@@ -179,22 +179,31 @@
             if (opts.view_hook && opts.delete_hook && !opts.custom_hook) {
                 $(this).each(function(i) {
                     if ( $(this).find('.delete-hook').size() == 0 ) {
-                        $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='view' class='view-hook' title='Click to trigger an additional view'>"+ opts.hookNames.view +"</a></li><li><a href='#' value='delete' class='delete-hook' title='Click to delete'>"+ opts.hookNames.rdelete +"</a></li>");
+                        $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='delete' class='delete-hook' title='Click to "+ opts.hookNames.rdelete +"'>"+ opts.hookNames.rdelete +"</a></li>");
+                    }
+                    if ( $(this).find('.view-hook').size() == 0 ) {
+                        $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='view' class='view-hook' title='Click to trigger an additional view'>"+ opts.hookNames.view +"</a></li>");
                     }
                 });
                 $(document).trigger('editable.dropdowns');
             //add 'View' and 'Custom' dropdowns
             } else if (opts.view_hook && opts.custom_hook && !opts.delete_hook) {
                 $(this).each(function(i) {
-                    if ( $(this).find('.delete-hook').size() == 0 ) {
-                        $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='custom' class='custom-hook' title=Click to "+ opts.hookNames.custom +">"+ opts.hookNames.custom +"</a></li><li><a href='#' value='view' class='view-hook' title='Click to trigger an additional view'>"+ opts.hookNames.view +"</a></li>");
+                    if ( $(this).find('.view-hook').size() == 0 ) {
+                        $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='view' class='view-hook' title='Click to trigger an additional view'>"+ opts.hookNames.view +"</a></li>");
+                    }
+                    if ( $(this).find('.custom-hook').size() == 0 ) {
+                        $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='custom' class='custom-hook' title=Click to "+ opts.hookNames.custom +">"+ opts.hookNames.custom +"</a></li>");
                     }
                 });
                 $(document).trigger('editable.dropdowns');
             } else {
                 $(this).each(function(i) {
                     if ( $(this).find('.delete-hook').size() == 0 ) {
-                        $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='custom' class='custom-hook' title='Click to "+ opts.hookNames.custom +"'>"+ opts.hookNames.custom +"</a></li><li><a href='#' value='delete' class='delete-hook' title='Click to delete'>"+ opts.hookNames.rdelete +"</a></li>");
+                        $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='delete' class='delete-hook' title='Click to "+ opts.hookNames.rdelete +"'>"+ opts.hookNames.rdelete +"</a></li>");
+                    }
+                    if ( $(this).find('.custom-hook').size() == 0 ) {
+                        $(this).find('.edit-group').find('.dropdown-menu').append("<li><a href='#' value='custom' class='custom-hook' title='Click to "+ opts.hookNames.custom +"'>"+ opts.hookNames.custom +"</a></li>");
                     }
                 });
             }
@@ -555,3 +564,4 @@
     }
 
 }(jQuery));
+
