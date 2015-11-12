@@ -22,7 +22,7 @@
   <li>Include `bootstrap.css` and `JQuery-x.x.x.min.js`</li>
   <li>To make your table editable instantly (just to give you an idea of what it will look like in your application) include the editable and dependency scripts at the end of the page:</li>
   <ul>
-    <li>`<script type="text/javascript" src="../path/to/plugins/bootstrap.min.js"></script>`</li>
+    <li>```js <script type="text/javascript" src="../path/to/plugins/bootstrap.min.js"></script>```</li>
     <li>Optional: <script type="text/javascript" src="../path/to/plugins/parsley.min.js"></script></li>
     <li>Optional: <script type="text/javascript" src="../path/to/plugins/number.min.js"></script></li>
     <li>Optional: <script type="text/javascript" src="../path/to/plugins/autosize.input.min.js"></script></li>
