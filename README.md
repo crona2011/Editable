@@ -87,7 +87,7 @@ Function | Explaination
 ### Event List:
 All events are attached to the document - `$(document).trigger('editable.name')`
 Event | Explaination
----------|-------------
+------|-------------
 `editable.validateError`|Triggered when parsley validates a field to be incorrect
 `editable.validateSuccess`|Triggered when parsley validates a field to be correct
 `editable.addHooks`|Triggered when the add hooks are created
