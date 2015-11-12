@@ -29,7 +29,7 @@ And here's how you use it! :+1:
 	* `<link href="/path/to/css/bootstrap.css" rel="stylesheet">`
 
 2. **Secondly we have to include our dependencies (some are actually optional):**
-	* `<script src="../path/to/plugins/parsley.min.js"></script>`
+	* Optional: `<script src="../path/to/plugins/parsley.min.js"></script>`
 	* Optional: `<script src="../path/to/plugins/number.min.js"></script>`
 	* Optional: `<script src="../path/to/plugins/autosize.input.min.js"></script>`
 	* And our Editable script: `<script src="../path/to/plugins/editable.js"></script>`
