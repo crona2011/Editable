@@ -51,10 +51,9 @@ $(document).ready(function() {
 ```
 This will get you started with a simple table that becomes editable when you click edit... but although may look nice it doesn't have any functionality, so we need to add some options :smiley:
 
-Like most JQuery plugins the options are seperated into callbacks and options, we will look at the options first.
+Like most JQuery plugins the options are seperated into callbacks, options and events, we will look at the options first.
 
-The current list of options is as follows:
-
+### Options List:
 Option | Type | Values | Default | Explaination
 -------|------|--------|---------|-------------
 `shortCircuit`| bool | `true` or `false`|`false`|Jumps the plugin to the the return functions `enableInputs()` and `disabledInputs()` this is call automatically if you pass `null` as an argument like this: `$.editable(null)`
@@ -71,11 +70,50 @@ Option | Type | Values | Default | Explaination
 `inputClass`| string |any|`form-control`|Passes classes to the input field
 `acceptAttributes`| array |any|<small>`{1: 'data-parsley-required',` <br> `2: 'data-parsley-type',` <br> `3: 'data-parsley-minlength',` <br> `4: 'data-parsley-maxlength',` <br> `5: 'data-parsley-length',` <br> `6: 'data-parsley-min',` <br> `7: 'data-parsley-max',` <br> `8: 'data-parsley-range',` <br> `9: 'data-parsley-pattern',` <br> `10: 'data-parsley-mincheck',` <br> `11: 'data-parsley-maxcheck',` <br> `12: 'data-parsley-check',` <br> `13: 'data-parsley-equalto'}`</small> |Array of attributes that will be searched through and if exist in the parent container (`<td>`) will be added to the input fields dynamically for validation.
 
-Callback list:
+### Callback List:
 Function | Explaination
 ---------|-------------
 `onInit`|Will be called when the plugin gets initiated (can be bypassed by setting `shortCircuit` to `false`)
-`add`|
+`add`| Will be called when the `add` button is clicked
+`edit`| Will be called when the `edit` button is clicked
+`editAfter`| Will be called when the `edit` button is clicked and after the fields have been converted to input fields
+`done`| Will be called when the `done` button is clicked
+`doneAfter`| Will be called when the `done` button is clicked and after the fields have been converted back to text
+`rdelete`| Will be called when the `delete` button is clicked **notice the r in `rdelete`**
+`view`| Will be called when the `view` button is clicked
+`custom`| Will be called when the `custom` button is clicked
+`validate`| Not currently in use
+
+### Event List:
+All events are attached to the document - `$(document).trigger('editable.name')`
+Event | Explaination
+---------|-------------
+`editable.validateError`|Triggered when parsley validates a field to be incorrect
+`editable.validateSuccess`|Triggered when parsley validates a field to be correct
+`editable.addHooks`|Triggered when the add hooks are created
+`editable.dropdowns`|Triggered when the dropdown parent is created
+`editable.viewDropdown`|Triggered when the dropdown `view` dropdown is created
+`editable.customDropdown`|Triggered when the dropdown `custom` dropdown is created
+`editable.deleteDropdown`|Triggered when the dropdown `delete` dropdown is created
+`editable.viewButton`|Triggered when the dropdown `view` button is created
+`editable.deleteButton`|Triggered when the dropdown `delete` button is created
+`editable.customButton`|Triggered when the dropdown `custom` button is created
+`editable.add`|Triggered after the `add` callback is called
+`editable.edit`|Triggered after the `edit` callback is called
+`editable.done`|Triggered after the `done` callback is called
+`editable.editAfter`|Triggered after the `editAfter` callback is called
+`editable.doneAfter`|Triggered after the `doneAfter` callback is called
+`editable.rdelete`|Triggered after the `rdelete` callback is called
+`editable.view`|Triggered after the `view` callback is called
+`editable.custom`|Triggered after the `custom` callback is called
+`editable.reset`|Triggered after the `reset` callback is called
+`editable.onInit`|Triggered when editable is initated (this can be bypassed by setting `shortCircuit` to `false`)
+`editable.enableInputs`|Triggered when cells are converted into input fields
+`editable.disableInputs`|Triggered when input fields are converted into text
+
+
+
+
 
 
 
