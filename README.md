@@ -15,6 +15,4 @@
   <li>jQuery Autosize</li>
 </ul>
 <p>If you don't want it to work with these functions then the plugin will fallback with a console warning.</p>
-<p>This plugin is a work is progress, it has been tested and is in production (v1.3), if you find any bugs please don't hesitate to send a pull request!</p>
-
-
+<b>This plugin is a work is progress, it has been tested and is in production (v1.3), if you find any bugs please don't hesitate to send a pull request!</b>
