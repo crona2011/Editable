@@ -124,7 +124,7 @@
                         title: messages,
                         trigger: 'manual'
                     });
-                    $(document).trigger('editable.validate');
+                    $(document).trigger('editable.validateError');
                 });
                 
                 // destroy tooltip when field is valid
