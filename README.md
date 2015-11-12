@@ -49,11 +49,55 @@ $(document).ready(function() {
     });
 });
 ```
-This will get you started with a simple table that becomes editable when you click edit... but although may look nice it doesn't have any functionality, so we need to add some options :smiley:
+This will get you started with a simple table that becomes editable when you click edit... but although may look nice it doesn't have any functionality, so we need to add some options :smiley: 
 
-Like most JQuery plugins the options are seperated into callbacks, options and events, we will look at the options first.
+The below example shows how you can execute functions to be called when a particular button is pressed packaged up into a neat block of code.
 
-### Options List:
+`$(hook)` is a pointer to which button was pressed and can be used to find that row and subsquentially the values you need in the cells - Currently no values are passed to the callbacks, although I will be looking into this in the next release.
+
+### Example:
+
+``` javascript
+myTableOptions = {
+    view_hook: true,
+    custom_hook: true,
+    hookNames: {custom:'MyCustomHook'},
+    onInit: function(hook) {
+        $(hook).find('#name-th').html("<input type='text' id='name-th-input' class='form-control' placeholder='Name' required='true'>");
+        //autosize input
+        $(hook).find('#name-th input').width('90px').autosizeInput();
+    },
+    add: function(hook) {
+        //alert('Add button clicked');
+    },
+    editAfter: function(hook) {
+        //alert('Edit button clicked');
+    },
+    done: function(hook) {
+        //alert('Done button clicked');
+    },
+    rdelete: function(hook) {
+        //alert('Delete button clicked');
+    },
+    view: function(hook) {
+        //alert('View button clicked');
+    },
+};
+```
+
+After setting your options you call the plugin with the options variable as the argument like so:
+
+``` javascript
+$(document).ready(function() {
+    $('.myTable').editable(myTableOptions);
+});
+```
+
+**Please note that if you specify the `add_hook` as `true` (default) your table's `<th>`'s will each need a class, as when the `<tfoot>` is generated these classes will become each cell's id**
+
+Like most JQuery plugins the options are seperated into callbacks, options and events, below is a few lists for your reference.
+
+### Options:
 Option | Type | Values | Default | Explaination
 -------|------|--------|---------|-------------
 `shortCircuit`| bool | `true` or `false`|`false`|Jumps the plugin to the the return functions `enableInputs()` and `disabledInputs()` this is call automatically if you pass `null` as an argument like this: `$.editable(null)`
@@ -70,7 +114,7 @@ Option | Type | Values | Default | Explaination
 `inputClass`| string |any|`form-control`|Passes classes to the input field
 `acceptAttributes`| array |any|<small>`{1: 'data-parsley-required',` <br> `2: 'data-parsley-type',` <br> `3: 'data-parsley-minlength',` <br> `4: 'data-parsley-maxlength',` <br> `5: 'data-parsley-length',` <br> `6: 'data-parsley-min',` <br> `7: 'data-parsley-max',` <br> `8: 'data-parsley-range',` <br> `9: 'data-parsley-pattern',` <br> `10: 'data-parsley-mincheck',` <br> `11: 'data-parsley-maxcheck',` <br> `12: 'data-parsley-check',` <br> `13: 'data-parsley-equalto'}`</small> |Array of attributes that will be searched through and if exist in the parent container (`<td>`) will be added to the input fields dynamically for validation.
 
-### Callback List:
+### Callbacks:
 Function | Explaination
 ---------|-------------
 `onInit`| Will be called when the plugin gets initiated (can be bypassed by setting `shortCircuit` to `false`)
@@ -84,7 +128,7 @@ Function | Explaination
 `custom`| Will be called when the `custom` button is clicked
 `validate`| Not currently in use
 
-### Event List:
+### Events (Global):
 All events are attached to the document - `$(document).trigger('editable.name')`
 
 Event | Explaination
