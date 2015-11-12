@@ -158,7 +158,7 @@
                             $(this).find('.edit-group').css('width', '75px');
                         }
                         //add dropdown if delete OR views hooks exist AND if toggler hooks exist
-                        if (opts.delete_hook || opts.view_hook || opts.custom_hook && opts.toggler_hooks) {
+                        if ((opts.delete_hook || opts.view_hook || opts.custom_hook) && opts.toggler_hooks) {
                             $(this).find('.edit-td').find('.edit-group').html("<button type='button' class='edit-dropdown btn btn-xs btn-primary dropdown-toggle' data-toggle='dropdown' aria-expanded='false'><span class='caret'></span><span class='sr-only'>Toggle Dropdown</span></button><ul class='dropdown-menu' role='menu' style='right: 9px; left: inherit; min-width:100px; padding:0px; margin:0px'></ul>")
                         }
                     }
@@ -175,7 +175,7 @@
                 $(document).trigger('editable.addHooks');
             }
     
-            //add 'Delete', 'View' dropdowns
+            //add 'Delete', 'View' and 'Custom' dropdowns
             if (opts.view_hook && opts.delete_hook && !opts.custom_hook) {
                 $(this).each(function(i) {
                     if ( $(this).find('.delete-hook').size() == 0 ) {
