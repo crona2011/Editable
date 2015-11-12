@@ -18,7 +18,15 @@
 <b>This plugin is a work is progress, it has been tested and is in production (v1.3), if you find any bugs please don't hesitate to send a pull request!</b>
 
 <h3>Quick Setup</h3>
-
-<p>To make your table editable instantly (just to give you an idea of what it will look like in your application) just include the editable script at the end of the page:</p>
-`<script type="text/javascript" src="../path/to/plugins/editable.js"></script>`
-<p>and initiate the plugin: </p> `$('#myTableID').editable();`
+<ol>
+  <li>Include `bootstrap.css` and `JQuery-x.x.x.min.js`</li>
+  <li>To make your table editable instantly (just to give you an idea of what it will look like in your application) include the editable and dependency scripts at the end of the page:</li>
+  <ul>
+    <li>`<script type="text/javascript" src="../path/to/plugins/bootstrap.min.js"></script>`</li>
+    <li>Optional: `<script type="text/javascript" src="../path/to/plugins/parsley.min.js"></script>`</li>
+    <li>Optional: `<script type="text/javascript" src="../path/to/plugins/number.min.js"></script>`</li>
+    <li>Optional: `<script type="text/javascript" src="../path/to/plugins/autosize.input.min.js"></script>`</li>
+    <li>`<script type="text/javascript" src="../path/to/plugins/editable.js"></script>`</li>
+  </ul>
+  <li>Initiate the plugin: </p> `$('#myTableID').editable();`</li>
+</ol>
