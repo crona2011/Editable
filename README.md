@@ -1,4 +1,4 @@
-# Editable
+# Editable Fn
 <h3>Edit-Table, an ajax friendly way of updating dynamic HTML tables</h3>
 <p>A simple, customisable JQuery plugin that allows toggling of <table> cells to HTML inputs for editing.</p>
 <p>The plugin attaches an assortment of customisable buttons and dropdowns to the end (last <td> and <tr>) to enable the user to Add, Edit, View, Delete the table's rows and cells</p>
