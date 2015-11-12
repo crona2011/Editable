@@ -115,9 +115,6 @@
                 // when there is an error, display the tooltip with the error message
                 $.listen('parsley:field:error', function (fieldInstance) {
                     var messages = ParsleyUI.getErrorsMessages(fieldInstance);
-                    if(fieldInstance.$element.tooltip('instance') != undefined) {
-                        fieldInstance.$element.tooltip('destroy');
-                    }
                     fieldInstance.$element.tooltip({
                         animation: true,
                         container: 'body',
@@ -130,9 +127,6 @@
                 
                 // destroy tooltip when field is valid
                 $.listen('parsley:field:success', function(fieldInstance) {
-                    if(fieldInstance.$element.tooltip('instance') != undefined) {
-                        fieldInstance.$element.tooltip('destroy');
-                    }
                     $(document).trigger('editable.validateSuccess');
                 });
             } else {
