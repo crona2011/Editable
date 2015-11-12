@@ -73,7 +73,7 @@ Option | Type | Values | Default | Explaination
 ### Callback List:
 Function | Explaination
 ---------|-------------
-`onInit`|Will be called when the plugin gets initiated (can be bypassed by setting `shortCircuit` to `false`)
+`onInit`| Will be called when the plugin gets initiated (can be bypassed by setting `shortCircuit` to `false`)
 `add`| Will be called when the `add` button is clicked
 `edit`| Will be called when the `edit` button is clicked
 `editAfter`| Will be called when the `edit` button is clicked and after the fields have been converted to input fields
@@ -86,30 +86,31 @@ Function | Explaination
 
 ### Event List:
 All events are attached to the document - `$(document).trigger('editable.name')`
+
 Event | Explaination
 ------|-------------
-`editable.validateError`| Triggered when parsley validates a field to be incorrect
-`editable.validateSuccess`| Triggered when parsley validates a field to be correct
-`editable.addHooks`| Triggered when the add hooks are created
-`editable.dropdowns`| Triggered when the dropdown parent is created
-`editable.viewDropdown`| Triggered when the dropdown `view` dropdown is created
-`editable.customDropdown`| Triggered when the dropdown `custom` dropdown is created
-`editable.deleteDropdown`| Triggered when the dropdown `delete` dropdown is created
-`editable.viewButton`| Triggered when the dropdown `view` button is created
-`editable.deleteButton`| Triggered when the dropdown `delete` button is created
-`editable.customButton`| Triggered when the dropdown `custom` button is created
-`editable.add`| Triggered after the `add` callback is called
-`editable.edit`| Triggered after the `edit` callback is called
-`editable.done`| Triggered after the `done` callback is called
-`editable.editAfter`| Triggered after the `editAfter` callback is called
-`editable.doneAfter`| Triggered after the `doneAfter` callback is called
-`editable.rdelete`| Triggered after the `rdelete` callback is called
-`editable.view`| Triggered after the `view` callback is called
-`editable.custom`| Triggered after the `custom` callback is called
-`editable.reset`| Triggered after the `reset` callback is called
-`editable.onInit`| Triggered when editable is initated (this can be bypassed by setting `shortCircuit` to `false`)
-`editable.enableInputs`| Triggered when cells are converted into input fields
-`editable.disableInputs`| Triggered when input fields are converted into text
+`editable.validateError` | Triggered when parsley validates a field to be incorrect
+`editable.validateSuccess` | Triggered when parsley validates a field to be correct
+`editable.addHooks` | Triggered when the add hooks are created
+`editable.dropdowns` | Triggered when the dropdown parent is created
+`editable.viewDropdown` | Triggered when the dropdown `view` dropdown is created
+`editable.customDropdown` | Triggered when the dropdown `custom` dropdown is created
+`editable.deleteDropdown` | Triggered when the dropdown `delete` dropdown is created
+`editable.viewButton` | Triggered when the dropdown `view` button is created
+`editable.deleteButton` | Triggered when the dropdown `delete` button is created
+`editable.customButton` | Triggered when the dropdown `custom` button is created
+`editable.add` | Triggered after the `add` callback is called
+`editable.edit` | Triggered after the `edit` callback is called
+`editable.done` | Triggered after the `done` callback is called
+`editable.editAfter` | Triggered after the `editAfter` callback is called
+`editable.doneAfter` | Triggered after the `doneAfter` callback is called
+`editable.rdelete` | Triggered after the `rdelete` callback is called
+`editable.view` | Triggered after the `view` callback is called
+`editable.custom` | Triggered after the `custom` callback is called
+`editable.reset` | Triggered after the `reset` callback is called
+`editable.onInit` | Triggered when editable is initated (this can be bypassed by setting `shortCircuit` to `false`)
+`editable.enableInputs` | Triggered when cells are converted into input fields
+`editable.disableInputs` | Triggered when input fields are converted into text
 
 
 
