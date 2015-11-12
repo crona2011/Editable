@@ -88,8 +88,10 @@
         };
         
         //if no arguments are parsed go straight to return functions (shortCircuit)
-        if (options == undefined) {
+        if (options == null) {
             var opts = $.extend(true, {}, $.fn.editable.defaults, options, {shortCircuit: true} );
+        } else if (options == undefined) {
+            var opts = $.fn.editable.defaults;
         } else {
             var opts = $.extend(true, {}, $.fn.editable.defaults, options );
         }
@@ -338,7 +340,7 @@
                     //call the edit callback
                     opts.edit.call($this, $(this));
                     //enable the inputs
-                    $this.editable().enableInputs($(this));
+                    $this.editable(null).enableInputs($(this));
                     $(this).trigger('editable.edit');
                     return false;
                 });
@@ -364,7 +366,7 @@
                         //call the done callback
                         opts.done.call($this, $(this));
                         //disable the inputs
-                        $this.editable().disableInputs($(this));
+                        $this.editable(null).disableInputs($(this));
                         $(this).trigger('editable.done');
                     }
                     return false;
