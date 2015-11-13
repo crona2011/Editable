@@ -7,15 +7,15 @@ The plugin attaches an assortment of customisable buttons and dropdowns to the e
 
 This is a pure client-side plugin which incorporates multiple callbacks to work with your own ajax functions - a great step if you need to create an 'ajaxable' table.
 
-### Check-out the Demo: jsfiddle.net/Lmbm14hf/1/
+### Check-out the Demo: http://jsfiddle.net/Lmbm14hf/2/
 
 The plugin is designed to work with my prefered JQuery plugins:
 
  * Bootstrap v3
  * Bootstrap Tooltips
  * Parsley Validation (listeners incorporated)
- * JQuery Number github.com/teamdf/jquery-number
- * JQuery Autosize github.com/MartinF/jQuery.Autosize.Input
+ * JQuery Number http://github.com/teamdf/jquery-number
+ * JQuery Autosize http://github.com/MartinF/jQuery.Autosize.Input
 
 If you don't want it to work with these functions then the plugin will fallback with a console warning.
 
