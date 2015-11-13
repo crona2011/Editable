@@ -1,7 +1,7 @@
 /*
  * COPYRIGHT: Edward Selby
- * VERSION: 1.3
- * LAST UPDATED: 10/11/2015
+ * VERSION: 1.4
+ * LAST UPDATED: 13/11/2015
  *
  * Required Dependencies:
  * Glyphicons
