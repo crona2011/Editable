@@ -1,7 +1,7 @@
 /*
  * COPYRIGHT: Edward Selby
  * VERSION: 1.4
- * LAST UPDATED: 13/11/2015
+ * LAST UPDATED: 10/11/2015
  *
  * Required Dependencies:
  * Glyphicons
@@ -358,9 +358,10 @@
                 $(editHook).not('.bound').addClass('bound').on('click', function(e) {
                     e.preventDefault();
                     //call the edit callback
-                    opts.edit.call($this, $(this), rowData($(this)));
-                    //enable the inputs
-                    $this.editable(null).enableInputs($(this));
+                    if(opts.edit.call($this, $(this), rowData($(this))) !== false) {
+                        //enable the inputs
+                        $this.editable(null).enableInputs($(this));
+                    }
                     $(this).trigger('editable.edit');
                     return false;
                 });
@@ -384,9 +385,10 @@
                     //check if fields are valid
                     if($(parsleyContainer).parsley().validate() || !opts.parsleyValidation) {
                         //call the done callback
-                        opts.done.call($this, $(this), rowData($(this)));
-                        //disable the inputs
-                        $this.editable(null).disableInputs($(this));
+                        if(opts.done.call($this, $(this), rowData($(this))) !== false) {
+                            //disable the inputs
+                            $this.editable(null).disableInputs($(this));
+                        }
                         $(this).trigger('editable.done');
                     }
                     return false;
