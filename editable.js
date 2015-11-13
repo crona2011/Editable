@@ -87,6 +87,26 @@
             validate: function() { return true; },
         };
         
+        //loops through td's and returns and array of objects and there respective values
+        var rowData = function(hook) {
+            var data = {};
+            var value;
+            var idx;
+            $(hook).closest('tr').find('td').each(function() {
+                idx = $(this)[0].cellIndex;
+                if ($(this).find('input').size > 0) {
+                    value = $(this).find('input').val();
+                    data[idx] = {'obj': $(this), 'val': value};
+                } else if ($(this).find('select').size > 0) {
+                    value = $(this).find('option:selected').val();
+                    data[idx] = {'obj': $(this), 'val': value};
+                } else {
+                    data[idx] = {'obj': $(this), 'val': $(this).text()};
+                }
+            });
+            return data;
+        };
+        
         //if null is parsed go straight to return functions (shortCircuit)
         if (options === null) {
             var opts = $.extend(true, {}, $.fn.editable.defaults, options, {shortCircuit: true} );
@@ -326,7 +346,7 @@
                     
                     //callback
                     if($(parsleyContainer).parsley().validate() || !opts.parsleyValidation) {
-                        opts.add.call($this, $(this));
+                        opts.add.call($this, $(this), rowData($(this)));
                     }
                     $(this).trigger('editable.add');
                     return false;
@@ -338,7 +358,7 @@
                 $(editHook).not('.bound').addClass('bound').on('click', function(e) {
                     e.preventDefault();
                     //call the edit callback
-                    opts.edit.call($this, $(this));
+                    opts.edit.call($this, $(this), rowData($(this)));
                     //enable the inputs
                     $this.editable(null).enableInputs($(this));
                     $(this).trigger('editable.edit');
@@ -364,7 +384,7 @@
                     //check if fields are valid
                     if($(parsleyContainer).parsley().validate() || !opts.parsleyValidation) {
                         //call the done callback
-                        opts.done.call($this, $(this));
+                        opts.done.call($this, $(this), rowData($(this)));
                         //disable the inputs
                         $this.editable(null).disableInputs($(this));
                         $(this).trigger('editable.done');
@@ -378,7 +398,7 @@
                 $(editHook).not('.after').addClass('after').on('click', function(e) {
                     e.preventDefault();
                     //call the editAfter callback
-                    opts.editAfter.call($this, $(this));
+                    opts.editAfter.call($this, $(this), rowData($(this)));
                     $(this).trigger('editable.editAfter');
                     return false;
                 });
@@ -402,7 +422,7 @@
                     //check if fields are valid
                     if($(parsleyContainer).parsley().validate() || !opts.parsleyValidation) {
                         //call the doneAfter callback
-                        opts.doneAfter.call($this, $(this));
+                        opts.doneAfter.call($this, $(this), rowData($(this)));
                         $(this).trigger('editable.doneAfter');
                     }
                     return false;
@@ -414,18 +434,18 @@
                 $(deleteHook).not('.bound').addClass('bound').on('click', function(e) {
                     if ($(this).is('.disabled') ) { return false; }
                     e.preventDefault();
-                    opts.rdelete.call($this, $(this));
+                    opts.rdelete.call($this, $(this), rowData($(this)));
                     $(this).trigger('editable.rdelete');
                     return false;
                 });
             }
             
-            //Trigger optional delete callback
+            //Trigger optional view callback
             if (opts.view_hook) {
                 $(viewHook).not('.bound').addClass('bound').on('click', function(e) {
                     if ($(this).is('.disabled') ) { return false; }
                     e.preventDefault();
-                    opts.view.call($this, $(this));
+                    opts.view.call($this, $(this), rowData($(this)));
                     $(this).trigger('editable.view');
                     return false;
                 });
@@ -436,7 +456,7 @@
                 $(customHook).not('.bound').addClass('bound').on('click', function(e) {
                     if ($(this).is('.disabled') ) { return false; }
                     e.preventDefault();
-                    opts.custom.call($this, $(this));
+                    opts.custom.call($this, $(this), rowData($(this)));
                     $(this).trigger('editable.custom');
                     return false;
                 });
@@ -566,4 +586,6 @@
     }
 
 }(jQuery));
+
+
 
