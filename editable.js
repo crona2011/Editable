@@ -94,10 +94,10 @@
             var idx;
             $(hook).closest('tr').find('td').each(function() {
                 idx = $(this)[0].cellIndex;
-                if ($(this).find('input').size > 0) {
+                if ($(this).find('input').length) {
                     value = $(this).find('input').val();
                     data[idx] = {'obj': $(this), 'val': value};
-                } else if ($(this).find('select').size > 0) {
+                } else if ($(this).find('select').length) {
                     value = $(this).find('option:selected').val();
                     data[idx] = {'obj': $(this), 'val': value};
                 } else {

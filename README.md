@@ -53,7 +53,24 @@ This will get you started with a simple table that becomes editable when you cli
 
 The below example shows how you can execute functions to be called when a particular button is pressed packaged up into a neat block of code.
 
-`$(hook)` is a pointer to which button was pressed and can be used to find that row and subsquentially the values you need in the cells - Currently no values are passed to the callbacks, although I will be looking into this in the next release.
+`$(hook)` is a pointer to which button was pressed and can be used to find that row and subsquentially the values you need in the cells.
+
+You can also use the data object provided in the second argument on the callback (data), the returned data should look something like this:
+
+``` javascript
+data {
+	1: {
+		'obj':td.myid-td,
+		'val':1
+	},
+	2: {
+		'obj':td.name-td,
+		'val':'myName'
+	}
+	etc...
+};
+```
+The data will be fetched based on what element (if any) are contained within the cell, so if there is an `input` it will fetch the `input`'s value. Currently only `input`'s and `select`'s are supported. If there is no element or an unsupported element inside the cell the cell's contents will be returned as text.
 
 ### Example:
 
@@ -67,19 +84,19 @@ myTableOptions = {
         //autosize input
         $(hook).find('#name-th input').width('90px').autosizeInput();
     },
-    add: function(hook) {
+    add: function(hook, data) {
         //alert('Add button clicked');
     },
-    editAfter: function(hook) {
+    editAfter: function(hook, data) {
         //alert('Edit button clicked');
     },
-    done: function(hook) {
+    done: function(hook, data) {
         //alert('Done button clicked');
     },
-    rdelete: function(hook) {
+    rdelete: function(hook, data) {
         //alert('Delete button clicked');
     },
-    view: function(hook) {
+    view: function(hook, data) {
         //alert('View button clicked');
     },
 };
