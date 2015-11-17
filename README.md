@@ -1,4 +1,4 @@
-# Bootstrap Editable v1.4.1
+# Bootstrap Editable v1.4.2
 
 ### Edit-Table, an ajax friendly way of updating dynamic HTML tables
 A simple, customisable JQuery plugin that allows toggling of `<table>` cells to HTML inputs for editing.
