@@ -181,7 +181,7 @@
                         }
                         //add dropdown if delete OR views hooks exist AND if toggler hooks exist
                         if ((opts.delete_hook || opts.view_hook || opts.custom_hook) && opts.toggler_hooks) {
-                            $(this).find('.edit-td').find('.edit-group').html("<button type='button' class='edit-dropdown btn btn-xs btn-primary dropdown-toggle' data-toggle='dropdown' aria-expanded='false'><span class='caret'></span><span class='sr-only'>Toggle Dropdown</span></button><ul class='dropdown-menu' role='menu' style='right: 9px; left: inherit; min-width:100px; padding:0px; margin:0px'></ul>")
+                            $(this).find('.edit-td').find('.edit-group').html("<button type='button' class='edit-dropdown btn btn-xs btn-primary dropdown-toggle' data-toggle='dropdown' aria-expanded='false' title='Options'><span class='caret'></span><span class='sr-only'>Toggle Dropdown</span></button><ul class='dropdown-menu' role='menu' style='right: 9px; left: inherit; min-width:100px; padding:0px; margin:0px'></ul>")
                         }
                     }
                 });
@@ -297,7 +297,7 @@
                             if (i == th.size() - 1) {
                                 $(row).append("<td class='not add-td'><div class='btn-group add-group' style='width:75px'></div></td>")
                                 $(row).find('.add-group').append("<button type='button' value='add' class='btn btn-xs btn-default add-hook' title='Click to add a row'>"+ opts.hookNames.add +"</button>");
-                                $(row).find('.add-group').append("<button type='button' class='add-dropdown btn btn-xs btn-primary dropdown-toggle' data-toggle='dropdown' aria-expanded='false'><span class='caret'></span><span class='sr-only'>Toggle Dropdown</span></button><ul class='dropdown-menu' role='menu' style='right: 9px; left: inherit; min-width:100px; padding:0px; margin:0px'></ul>");
+                                $(row).find('.add-group').append("<button type='button' class='add-dropdown btn btn-xs btn-primary dropdown-toggle' data-toggle='dropdown' aria-expanded='false' title='Options'><span class='caret'></span><span class='sr-only'>Toggle Dropdown</span></button><ul class='dropdown-menu' role='menu' style='right: 9px; left: inherit; min-width:100px; padding:0px; margin:0px'></ul>");
                                 $(row).find('.add-group').find('.dropdown-menu').append("<li><a href='#' value='reset' class='reset-hook' title='Click to clear the add fields'>"+ opts.hookNames.reset +"</a></li>");
                                 return false;
                             } else {
@@ -475,8 +475,8 @@
                 return false;
             });
             
-            //run custom function on initiate and parse this to callback
-            opts.onInit.call(this, this);
+            //run custom function on initiate and parse this and addHook to callback
+            opts.onInit.call(this, this, rowData(addHook));
             $(this).trigger('editable.onInit');
         
         } //end short circuit
