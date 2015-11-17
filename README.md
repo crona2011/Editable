@@ -72,6 +72,11 @@ data {
 ```
 The data will be fetched based on what element (if any) are contained within the cell, so if there is an `input` it will fetch the `input`'s value. Currently only `input`'s and `select`'s are supported. If there is no element or an unsupported element inside the cell the cell's contents will be returned as text.
 
+The `onInit` callback passes the `addHook` as its second parameter.
+
+You can use the object passed as 'obj' in the data array to reference a particular cell and change its contents if necessary, like so:
+`$(data[1]['obj']).hmtl('<input type="text" class="form-control">');`
+
 ### Example:
 
 ``` javascript
@@ -79,10 +84,10 @@ myTableOptions = {
     view_hook: true,
     custom_hook: true,
     hookNames: {custom:'MyCustomHook'},
-    onInit: function(hook) {
-        $(hook).find('#name-th').html("<input type='text' id='name-th-input' class='form-control' placeholder='Name' required='true'>");
+    onInit: function(hook, data) {
+        $(data[1]['obj']).html("<input type='text' id='name-th-input' class='form-control' placeholder='Name' required='true'>");
         //autosize input
-        $(hook).find('#name-th input').width('90px').autosizeInput();
+        $(data[1]['obj']).find(input').width('90px').autosizeInput();
     },
     add: function(hook, data) {
         //alert('Add button clicked');
